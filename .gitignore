@@ -118,11 +118,24 @@ parts/
 sdist/
 var/
 wheels/
-migrations/
 *.egg-info/
 .installed.cfg
 *.egg
 manage.py
+*.pyc
+*.pyo
+*.mo
+*~
+.coverage
+db.sqlite3
+uwsgi.ini
+log/**
+!log/placeholder
+media/**
+!media/**/init.txt
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

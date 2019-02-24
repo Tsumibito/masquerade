@@ -2,21 +2,21 @@ from django.contrib import admin
 from shop.models import Product, ProductCategory, ProductImage, Reservation
 
 
+#InLines
 class ReservationInline(admin.TabularInline):
     model = Reservation
     extra = 0
 
+class ProductImageInline(admin.TabularInline):
+    model = ProductImage
+    extra = 0
+
+#Admins
 class ReservationAdmin(admin.ModelAdmin):
     list_display = ('product', 'start_date', 'end_date')
 
     class Meta:
         model = Reservation
-
-admin.site.register(Reservation, ReservationAdmin)
-
-class ProductImageInline(admin.TabularInline):
-    model = ProductImage
-    extra = 0
 
 class ProductImageAdmin(admin.ModelAdmin):
     list_display = [field.name for field in ProductImage._meta.fields]
@@ -24,14 +24,8 @@ class ProductImageAdmin(admin.ModelAdmin):
     class Meta:
         model = ProductImage
 
-admin.site.register(ProductImage, ProductImageAdmin)
-
-
 class ProductCategoryAdmin(admin.ModelAdmin):
     list_display = [field.name for field in ProductCategory._meta.fields]
-
-admin.site.register(ProductCategory, ProductCategoryAdmin)
-
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'category', 'is_active', 'price')
@@ -40,4 +34,8 @@ class ProductAdmin(admin.ModelAdmin):
     class Meta:
         model = Product
 
+#Register
+admin.site.register(Reservation, ReservationAdmin)
+admin.site.register(ProductImage, ProductImageAdmin)
+admin.site.register(ProductCategory, ProductCategoryAdmin)
 admin.site.register(Product, ProductAdmin)

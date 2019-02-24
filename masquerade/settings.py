@@ -56,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'masquerade.middleware.MySessionMiddleware',
 ]
 
 ROOT_URLCONF = 'masquerade.urls'
@@ -125,6 +126,10 @@ USE_L10N = True
 USE_TZ = True
 
 TAGGIT_CASE_INSENSITIVE = True
+
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
+SESSION_COOKIE_AGE = 315360000
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/

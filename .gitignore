@@ -133,9 +133,6 @@ log/**
 !log/placeholder
 media/**
 !media/**/init.txt
-**/migrations/**
-!**/migrations
-!**/migrations/__init__.py
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
